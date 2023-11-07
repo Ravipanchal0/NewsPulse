@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    let { title, desc, imageUrl, newsUrl } = this.props;
+    let { title, desc, imageUrl, newsUrl, mode, author, date } = this.props;
     return (
       <>
-        <div className="card shadow-sm my-3" style={{ width: "18rem" }}>
+        <div className="card shadow-sm my-3">
           <img
             src={
               !imageUrl
@@ -17,8 +17,10 @@ export class NewsItem extends Component {
           />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
+            <small className="d-block text-muted">Author : {author}</small>
+            <small className="d-block text-muted">Time : {date}</small>
             <p className="card-text">{desc}</p>
-            <a href={newsUrl} target="_blank" className="btn btn-sm btn-primary">
+            <a rel="noreferrer" href={newsUrl} target="_blank" className={`btn btn-sm btn-${mode === "light" ? "dark" : "light"}`}>
               Read more
             </a>
           </div>
