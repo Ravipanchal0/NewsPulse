@@ -27,7 +27,6 @@ export default class App extends Component {
   };
 
   render() {
-    this.active();
     return (
       <>
         <Router>
