@@ -4,7 +4,7 @@ import arrow from "./ArrowUp.svg";
 const UpArrow = () => {
   return (
     <div>
-      <img src={arrow} />
+      <img src={arrow} alt=">" />
     </div>
   );
 };

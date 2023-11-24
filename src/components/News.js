@@ -14,7 +14,7 @@ const News = (props) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
 
-  useEffect(async () => {
+  const updateNews = async () => {
     props.setProgress(30);
     document.title = `${capitalize(props.category)} News - NewsPulse`;
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&pageSize=${props.pageSize}&page=${page}`;
@@ -24,6 +24,9 @@ const News = (props) => {
     setTotalResults(parseData.totalResults);
     setLoading(false);
     props.setProgress(100);
+  };
+  useEffect(() => {
+    updateNews();
     /* eslint-disable-next-line padded-blocks */
   }, []);
 
